@@ -1,4 +1,4 @@
-name = "drebel-website"
+name = "website"
 compatibility_date = "2024-09-23"
 
 # Cloudflare Pages static site deployment
