@@ -1,0 +1,23 @@
+{
+  "name": "Juliano Drebel",
+  "headline": "Sênior Software Developer",
+  "summary": "+12 anos criando soluções digitais que fazem a diferença. Lidero times de alta performance para transformar projeto em realidade.",
+  "email": "julianodrebel@gmail.com",
+  "location": "Brasil",
+  "socialLinks": [
+    {
+      "platform": "linkedin",
+      "url": "https://www.linkedin.com/in/juliano-drebel/",
+      "label": "LinkedIn profile"
+    },
+    {
+      "platform": "github",
+      "url": "https://github.com/julianodrebel",
+      "label": "GitHub profile"
+    }
+  ],
+  "ogImage": "assets/images/og-image.png",
+  "seo": {
+    "defaultDescription": "Portfolio and online resume of Juliano Drebel — Sênior Software Developer specialising in Angular and TypeScript. Available for CLT and freelance."
+  }
+}

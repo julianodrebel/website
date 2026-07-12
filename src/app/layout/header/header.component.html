@@ -1,0 +1,75 @@
+<header class="header">
+  <div class="header__container container">
+    <!-- Logo -->
+    <a class="header__logo" routerLink="/" aria-label="drebel — home">
+      <span class="header__logo-text">Juliano Drebel</span>
+    </a>
+
+    <!-- Desktop navigation -->
+    <nav class="header__nav" aria-label="Main navigation">
+      <ul class="header__nav-list" role="list">
+        @for (link of navLinks; track link.route) {
+          <li class="header__nav-item">
+            <a
+              class="header__nav-link"
+              [routerLink]="link.route"
+              routerLinkActive="header__nav-link--active"
+              [routerLinkActiveOptions]="{ exact: link.exact }"
+              [attr.aria-current]="isCurrentRoute(link.route, link.exact) ? 'page' : null"
+              (click)="onNavLinkClick()"
+            >{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+    </nav>
+
+    <!-- Actions -->
+    <div class="header__actions">
+      <!-- Theme toggle -->
+      <button
+        class="header__icon-btn"
+        type="button"
+        [attr.aria-label]="themeToggleLabel"
+        (click)="toggleTheme()"
+      >
+        <app-icon [name]="themeIcon" [size]="20"></app-icon>
+      </button>
+
+      <!-- Hamburger (mobile only) -->
+      <button
+        class="header__hamburger"
+        type="button"
+        [attr.aria-expanded]="menuOpen"
+        [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'"
+        (click)="onHamburgerClick($event)"
+      >
+        <app-icon [name]="menuOpen ? 'close' : 'menu'" [size]="22"></app-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  @if (menuOpen) {
+    <div
+      class="header__mobile-menu slide-down"
+      role="dialog"
+      aria-label="Navigation menu"
+      aria-modal="true"
+    >
+      <nav aria-label="Mobile navigation">
+        <ul class="header__mobile-nav-list" role="list">
+          @for (link of navLinks; track link.route) {
+            <li>
+              <a
+                class="header__mobile-nav-link"
+                [routerLink]="link.route"
+                [attr.aria-current]="isCurrentRoute(link.route, link.exact) ? 'page' : null"
+                (click)="onNavLinkClick()"
+              >{{ link.label }}</a>
+            </li>
+          }
+        </ul>
+      </nav>
+    </div>
+  }
+</header>

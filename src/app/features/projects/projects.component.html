@@ -1,0 +1,62 @@
+<section class="projects-page container" aria-labelledby="projects-heading">
+  <div class="section">
+    <h1 class="section__title" id="projects-heading">Projects</h1>
+    <p class="projects-page__intro text-secondary">
+      A selection of personal and open-source projects.
+    </p>
+  </div>
+
+  <!-- Tag filters -->
+  @if (allTags$ | async; as tags) {
+    @if (tags.length > 0) {
+      <div class="projects-page__filters" role="group" aria-label="Filter projects by tag">
+        <app-tag
+          label="All"
+          [interactive]="true"
+          [active]="currentFilter === null"
+          (selected)="clearFilter()"
+        ></app-tag>
+        @for (tag of tags; track tag) {
+          <app-tag
+            [label]="tag"
+            [interactive]="true"
+            [active]="currentFilter === tag"
+            (selected)="onFilterSelect(tag)"
+          ></app-tag>
+        }
+      </div>
+    }
+  }
+
+  <!-- Project grid -->
+  @if (filteredProjects$ | async; as projects) {
+    @if (projects.length > 0) {
+      <ul class="projects-page__grid" role="list" aria-label="Projects">
+        @for (project of projects; track project.id) {
+          <li
+            class="projects-page__card card card--hidden"
+            appFadeIn
+          >
+            <article>
+              <h2 class="projects-page__card-title">{{ project.title }}</h2>
+              <p class="projects-page__card-description text-secondary">
+                {{ project.description }}
+              </p>
+              <ul class="projects-page__card-tags" role="list" aria-label="Technologies used">
+                @for (tag of project.tags; track tag) {
+                  <li>
+                    <app-tag [label]="tag"></app-tag>
+                  </li>
+                }
+              </ul>
+            </article>
+          </li>
+        }
+      </ul>
+    } @else {
+      <p class="text-secondary" style="padding-top: var(--spacing-xl)">
+        No projects found for this filter. <button type="button" class="projects-page__clear-btn" (click)="clearFilter()">Clear filter</button>
+      </p>
+    }
+  }
+</section>

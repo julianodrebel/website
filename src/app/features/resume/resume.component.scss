@@ -1,0 +1,115 @@
+.resume {
+  padding-block: var(--spacing-3xl);
+}
+
+.resume__summary-text {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-relaxed);
+  max-width: 70ch;
+  color: var(--color-text-secondary);
+}
+
+// Skills grid
+.resume__skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.resume__skill-card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: var(--spacing-lg);
+}
+
+.resume__skill-category {
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--spacing-md);
+}
+
+.resume__skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+// Experience timeline
+.resume__timeline {
+  position: relative;
+  padding-left: var(--spacing-xl);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    bottom: 8px;
+    left: 7px;
+    width: 2px;
+    background-color: var(--color-border);
+  }
+}
+
+.resume__timeline-item {
+  position: relative;
+  padding-bottom: var(--spacing-3xl);
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+}
+
+.resume__timeline-marker {
+  position: absolute;
+  left: calc(-1 * var(--spacing-xl) + 1px);
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--color-accent);
+  border: 2px solid var(--color-bg-primary);
+}
+
+.resume__timeline-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.resume__timeline-years {
+  font-size: var(--font-size-tiny);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.resume__timeline-role {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.resume__timeline-company {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+}
+
+.resume__timeline-description {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-top: var(--spacing-sm);
+}

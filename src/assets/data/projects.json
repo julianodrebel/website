@@ -1,0 +1,42 @@
+[
+  {
+    "id": "proj-001",
+    "title": "E-commerce Platform",
+    "description": "Multi-tenant online store with product catalogue, cart, and checkout flow. Supports 10k+ SKUs with real-time inventory management.",
+    "technologies": ["Angular", "Node.js", "PostgreSQL", "Docker"],
+    "tags": ["e-commerce", "fullstack", "scalability"],
+    "featured": true
+  },
+  {
+    "id": "proj-002",
+    "title": "Fleet Management System",
+    "description": "Real-time dashboard for tracking and scheduling a fleet of 500+ vehicles. Includes route optimisation and driver performance analytics.",
+    "technologies": ["Angular", "WebSockets", "Node.js", "Docker"],
+    "tags": ["realtime", "dashboard", "optimization"],
+    "featured": true
+  },
+  {
+    "id": "proj-003",
+    "title": "Financial Reporting Portal",
+    "description": "Internal tool for generating and exporting regulatory compliance reports. Reduced manual reporting time by 70%.",
+    "technologies": ["Angular", "TypeScript", "REST APIs"],
+    "tags": ["financial", "reporting", "compliance"],
+    "featured": false
+  },
+  {
+    "id": "proj-004",
+    "title": "Healthcare Patient Portal",
+    "description": "Secure patient-facing portal for appointment booking, prescription management, and medical record access.",
+    "technologies": ["Angular", "Node.js", "PostgreSQL"],
+    "tags": ["healthcare", "security", "patient-facing"],
+    "featured": false
+  },
+  {
+    "id": "proj-005",
+    "title": "CI/CD Pipeline Automation",
+    "description": "Automated build, test, and deployment pipeline reducing release cycle from 2 weeks to same-day. Integrated with Slack for team notifications.",
+    "technologies": ["GitHub Actions", "Docker", "Node.js"],
+    "tags": ["automation", "devops", "ci-cd"],
+    "featured": false
+  }
+]

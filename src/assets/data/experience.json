@@ -1,0 +1,26 @@
+[
+  {
+    "id": "exp-001",
+    "startYear": 2022,
+    "endYear": null,
+    "company": "Acme Fintech",
+    "role": "Senior Frontend Developer",
+    "description": "Led migration of legacy AngularJS dashboard to Angular 17. Reduced bundle size by 40% and improved Lighthouse score from 62 to 97. Mentored team of 4 developers."
+  },
+  {
+    "id": "exp-002",
+    "startYear": 2019,
+    "endYear": 2022,
+    "company": "StartupXYZ",
+    "role": "Full-Stack Developer",
+    "description": "Built customer-facing portal with Angular and NestJS serving 25k daily active users. Implemented CI/CD pipeline with GitHub Actions and Docker."
+  },
+  {
+    "id": "exp-003",
+    "startYear": 2016,
+    "endYear": 2019,
+    "company": "Digital Agency Co.",
+    "role": "Frontend Developer",
+    "description": "Developed responsive web applications for 15+ clients across e-commerce, healthcare, and finance sectors using Angular and React."
+  }
+]
