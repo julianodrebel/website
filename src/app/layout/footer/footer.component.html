@@ -1,0 +1,35 @@
+<footer class="footer">
+  <div class="footer__container container">
+    @if (profile$ | async; as profile) {
+      <div class="footer__social">
+        @for (link of profile.socialLinks; track link.platform) {
+          <a
+            class="footer__social-link"
+            [href]="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="link.label"
+          >
+            <app-icon [name]="link.platform" [size]="20"></app-icon>
+          </a>
+        }
+      </div>
+
+      <p class="footer__copyright">
+        &copy; {{ currentYear }} {{ profile.name }}
+      </p>
+    }
+
+    <p class="footer__privacy">
+      <a routerLink="/contact" class="footer__link">Contact</a>
+      &nbsp;·&nbsp;
+      <span class="footer__privacy-text">
+        This site uses Google Analytics for anonymous usage statistics and
+        Formspree for contact form delivery.
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="footer__link">
+          Privacy policy
+        </a>
+      </span>
+    </p>
+  </div>
+</footer>

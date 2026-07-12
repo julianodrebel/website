@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <title>Sênior Software Developer | drebel</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+    <!--
+      FOUC prevention: set data-theme BEFORE Angular bootstraps so the
+      correct colour scheme is applied on first paint with no flash.
+    -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('theme-preference')
+          var theme =
+            saved === 'dark' || saved === 'light'
+              ? saved
+              : window.matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+          document.documentElement.setAttribute('data-theme', theme)
+        } catch (_) {
+          document.documentElement.setAttribute('data-theme', 'light')
+        }
+      })()
+    </script>
+    <!--
+      Google Analytics 4
+      Replace G-XXXXXXXXXX with your real Measurement ID.
+      Also update src/environments/environment.ts and environment.prod.ts.
+    -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || []
+      function gtag() {
+        dataLayer.push(arguments)
+      }
+      gtag('js', new Date())
+      gtag('config', 'G-XXXXXXXXXX', {
+        anonymize_ip: true,
+        ads_data_redaction: true,
+      })
+    </script>
+  </head>
+  <body>
+    <app-root></app-root>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+.skip-link {
+  position: absolute;
+  top: -44px;
+  left: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  font-weight: var(--font-weight-semibold);
+  border-radius: 0 0 6px 6px;
+  text-decoration: none;
+  z-index: 9999;
+  transition: top var(--transition-fast);
+
+  &:focus {
+    top: 0;
+  }
+}
+
+main {
+  min-height: calc(100dvh - var(--header-height) - 5rem);
+}

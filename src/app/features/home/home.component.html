@@ -1,0 +1,47 @@
+@if (profile$ | async; as profile) {
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero__container container">
+      <p class="hero__label">Portfólio &amp; Currículo Online</p>
+      <h1 class="hero__name" id="hero-heading">{{ profile.name }}</h1>
+      <p class="hero__headline">{{ profile.headline }}</p>
+      <p class="hero__summary">{{ profile.summary }}</p>
+
+      <div class="hero__actions">
+        <a
+          routerLink="/resume"
+          class="hero__cta btn btn--primary"
+          aria-label="View my resume"
+        >Ver Currículo</a>
+        <a
+          routerLink="/contact"
+          class="hero__cta-secondary btn btn--secondary"
+          aria-label="Get in touch"
+        >Entrar em Contato</a>
+      </div>
+
+      <div class="hero__social" aria-label="Social profiles">
+        @for (link of profile.socialLinks; track link.platform) {
+          <a
+            class="hero__social-link"
+            [href]="link.url"
+            target="_blank"
+            rel="noopener noreferrer"
+            [attr.aria-label]="link.label"
+          >
+            <app-icon [name]="link.platform" [size]="22"></app-icon>
+          </a>
+        }
+      </div>
+
+      @if (profile.location) {
+        <p class="hero__location text-secondary">
+          📍 {{ profile.location }}
+        </p>
+      }
+    </div>
+  </section>
+} @else {
+  <div class="hero__loading container" aria-live="polite">
+    <p class="text-secondary">Loading...</p>
+  </div>
+}

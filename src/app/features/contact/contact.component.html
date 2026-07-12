@@ -1,0 +1,105 @@
+<section class="contact container" aria-labelledby="contact-heading">
+  <div class="section">
+    <h1 class="section__title" id="contact-heading">Entrar em Contato</h1>
+    <p class="contact__intro text-secondary">
+      Tem um projeto em mente? Envie uma mensagem e retorno em breve.
+    </p>
+  </div>
+
+  @if (formStatus === 'success') {
+    <div class="contact__banner contact__banner--success" role="status" aria-live="polite">
+      <strong>Mensagem enviada!</strong> Obrigado pelo contato, retorno em breve.
+    </div>
+  }
+
+  @if (formStatus === 'error') {
+    <div class="contact__banner contact__banner--error" role="alert" aria-live="assertive">
+      <strong>Erro ao enviar.</strong> Por favor, tente novamente ou envie um email diretamente.
+      <button type="button" class="contact__retry-btn" (click)="retryForm()">Tentar novamente</button>
+    </div>
+  }
+
+  @if (formStatus !== 'success') {
+    <form
+      class="contact__form"
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      novalidate
+      aria-label="Contact form"
+    >
+      <!-- Honeypot — hidden from real users -->
+      <input
+        type="text"
+        name="_gotcha"
+        formControlName="_gotcha"
+        aria-hidden="true"
+        tabindex="-1"
+        autocomplete="off"
+        class="contact__honeypot"
+      />
+
+      <app-form-field
+        fieldId="contact-name"
+        label="Nome"
+        [required]="true"
+        [control]="nameControl"
+        [errorMessage]="nameError"
+      >
+        <input
+          type="text"
+          id="contact-name"
+          formControlName="name"
+          autocomplete="name"
+          placeholder="Seu nome completo"
+          [attr.aria-invalid]="nameControl.dirty && nameControl.invalid"
+          [attr.aria-describedby]="nameError ? 'contact-name-error' : null"
+        />
+      </app-form-field>
+
+      <app-form-field
+        fieldId="contact-email"
+        label="Email"
+        [required]="true"
+        [control]="emailControl"
+        [errorMessage]="emailError"
+      >
+        <input
+          type="email"
+          id="contact-email"
+          formControlName="email"
+          autocomplete="email"
+          placeholder="seu@email.com"
+          [attr.aria-invalid]="emailControl.dirty && emailControl.invalid"
+          [attr.aria-describedby]="emailError ? 'contact-email-error' : null"
+        />
+      </app-form-field>
+
+      <app-form-field
+        fieldId="contact-message"
+        label="Mensagem"
+        [required]="true"
+        [control]="messageControl"
+        [errorMessage]="messageError"
+      >
+        <textarea
+          id="contact-message"
+          formControlName="message"
+          rows="6"
+          placeholder="Descreva seu projeto ou dúvida..."
+          [attr.aria-invalid]="messageControl.dirty && messageControl.invalid"
+          [attr.aria-describedby]="messageError ? 'contact-message-error' : null"
+        ></textarea>
+      </app-form-field>
+
+      <div class="contact__submit">
+        <app-button
+          type="submit"
+          variant="primary"
+          [disabled]="isSubmitting"
+        >
+          {{ isSubmitting ? 'Enviando...' : 'Enviar Mensagem' }}
+        </app-button>
+      </div>
+    </form>
+  }
+</section>

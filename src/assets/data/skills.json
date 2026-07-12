@@ -1,0 +1,14 @@
+[
+  {
+    "category": "Frontend",
+    "items": ["Angular", "TypeScript", "RxJS", "HTML5", "CSS3 / SCSS", "Tailwind CSS"]
+  },
+  {
+    "category": "Backend",
+    "items": ["Node.js", "NestJS", "REST APIs", "PostgreSQL", "MongoDB"]
+  },
+  {
+    "category": "DevOps & Tooling",
+    "items": ["Docker", "GitHub Actions", "Cloudflare", "Git", "Jest", "Karma"]
+  }
+]

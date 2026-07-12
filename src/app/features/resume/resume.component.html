@@ -1,0 +1,55 @@
+@if (resumeData$ | async; as data) {
+  <div class="resume container">
+
+    <!-- Professional Summary -->
+    <section class="section resume__summary" aria-labelledby="summary-heading">
+      <h1 class="section__title" id="summary-heading">Professional Summary</h1>
+      <p class="resume__summary-text">{{ data.profile.summary }}</p>
+    </section>
+
+    <!-- Skills -->
+    <section class="section resume__skills" aria-labelledby="skills-heading">
+      <h2 class="section__title" id="skills-heading">Skills</h2>
+      <div class="resume__skills-grid">
+        @for (category of data.skills; track category.category) {
+          <div class="resume__skill-card">
+            <h3 class="resume__skill-category">{{ category.category }}</h3>
+            <ul class="resume__skill-tags" role="list" [attr.aria-label]="category.category + ' skills'">
+              @for (item of category.items; track item) {
+                <li>
+                  <app-tag [label]="item"></app-tag>
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section class="section resume__experience" aria-labelledby="experience-heading">
+      <h2 class="section__title" id="experience-heading">Experience</h2>
+      <ol class="resume__timeline" aria-label="Work experience">
+        @for (entry of data.experience; track entry.id) {
+          <li class="resume__timeline-item" [id]="entry.id">
+            <div class="resume__timeline-marker" aria-hidden="true"></div>
+            <div class="resume__timeline-content">
+              <time
+                class="resume__timeline-years"
+                [attr.datetime]="entry.startYear + '-01-01'"
+              >{{ getYearRange(entry) }}</time>
+              <h3 class="resume__timeline-role">{{ entry.role }}</h3>
+              <p class="resume__timeline-company text-secondary">{{ entry.company }}</p>
+              <p class="resume__timeline-description">{{ entry.description }}</p>
+            </div>
+          </li>
+        }
+      </ol>
+    </section>
+
+  </div>
+} @else {
+  <div class="container" aria-live="polite" style="padding-block: 4rem">
+    <p class="text-secondary">Content temporarily unavailable.</p>
+  </div>
+}
